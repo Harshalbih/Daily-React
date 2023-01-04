@@ -48,3 +48,13 @@ function Timer() {
 
   return <h1>I've rendered {count} times!</h1>;
 }
+
+
+//clean up useEffect(using return function)
+useEffect(() => {
+    const subscription = props.source.subscribe();
+    return () => {
+      // Clean up the subscription
+      subscription.unsubscribe();
+    };
+  });

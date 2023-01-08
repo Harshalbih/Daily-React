@@ -5,7 +5,7 @@ const heading = document.createElement('h1');
 heading.innerHTML = 'Hello World! 😍 I love React';
 
 const p = document.createElement('p');
-p.innerHTML = `<b><i>Let's start with React Yeah! 😊</i></b>`;
+p.innerHTML = `<b>Let's start with React Yeah! 😊</b>`;
 
 const div = document.createElement('div');
 div.setAttribute('id', 'container');

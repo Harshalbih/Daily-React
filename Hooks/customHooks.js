@@ -12,7 +12,7 @@ const fetchurl = (url) =>{
     },[url]);
     return [data];
 }
-export default fetchurl;
+export default fetchurl; 
 
 //index.js
 import useFetch from "./useFetch";

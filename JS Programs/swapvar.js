@@ -9,3 +9,8 @@ b = temp;
 
 console.log(`Swapped value of a is ${b}`);
 console.log(`Swapped value of b is ${a}`);
+
+//Least num 
+function min(a, b) {
+	return a < b ? a : b;
+}

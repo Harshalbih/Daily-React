@@ -63,3 +63,13 @@ console.log(odd);
 const even= array.filter((item)=> item%2 ===0);
 console.log(even);
 
+//Intersection of two arrays
+let arr1 = [2,4,4,6,8,9]
+let arr2 = [2,4,7,8,8,5]
+
+let intersect= arr1.filter((ele)=> {
+    return arr2.includes(ele);
+})
+console.log([...new Set(intersect)])
+
+

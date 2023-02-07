@@ -4,12 +4,24 @@ let dup = [...new Set(arr)];
 console.log(dup);
 
 //or
-
 const array = [1, 1, 2, 2, 3, 4];
 function dupl(array) {
   return array.filter(function (item, pos) {
     return array.indexOf(item) == pos;
   });
+}
+console.log(dupl(array));
+
+//or
+const array = [1, 1, 2, 2, 3, 4];
+function dupl(array) {
+  let uniqueArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (uniqueArray.indexOf(array[i]) === -1) {
+      uniqueArray.push(array[i]);
+    }
+  }
+  return uniqueArray;
 }
 console.log(dupl(array));
 
@@ -35,7 +47,7 @@ console.log(maxnum);
 let maxnum = Math.max(...array);
 console.log(maxnum);
 
-//Second largest value im array
+//Second largest value in array
 let array = [1, 3, 5, 7, 1, 3, 5, 7, 9];
 let maxnum = Math.max(...array);
 let index = array.indexOf(maxnum);

@@ -17,3 +17,29 @@ for (let i = str.length - 1; i >= 0; i--) {
   newstring += str[i];
 }
 console.log(newstring);
+
+//Check if two string match with string chars
+let str1= "harshal";
+let str2 = "ahshral";
+
+function strmatch(val1, val2){
+  let arr1= val1.split("").sort().join("")
+  let arr2= val2.split("").sort().join("")
+  if (arr1===arr2) return true
+  else return false;
+}
+strmatch(str1, str2);
+
+//check count of repeated elements in array
+let arr= ["aa", "bb", "cc", "aa", "bb"];
+
+let obj =[];
+for(let i =0; i<arr.length;i++){
+  let item = arr[i];
+  if(obj[item]){
+    obj[item]= obj[item]+1;
+  }else{
+    obj[item]=1;
+  }
+}
+console.log(obj);

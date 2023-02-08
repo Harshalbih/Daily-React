@@ -13,3 +13,17 @@ function countVowel(str) {
   // return number of vowels
   return count;
 }
+
+//using for loop
+const vowels = ["a", "e", "i", "o", "u"];
+function countVowel(str){
+  let count =0;
+  str = str.toLowerCase();
+  for (let i=0; i<str.length;i++){
+    if(vowels.includes(str[i])){
+      count++;
+    }
+  }
+  return count;
+}
+console.log(countVowel("harshal"))

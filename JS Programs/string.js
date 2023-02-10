@@ -43,3 +43,8 @@ for(let i =0; i<arr.length;i++){
   }
 }
 console.log(obj);
+
+//Make first string uppercase
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}

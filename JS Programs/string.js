@@ -48,3 +48,8 @@ console.log(obj);
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+//To remove specific character
+let str1 = "hubli hi";
+console.log(str1.substring(4,str1.length)) //will remove first four chars 
+console.log(str1.substring(str1.length-2)) //to remove last chars

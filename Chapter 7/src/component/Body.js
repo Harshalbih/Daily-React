@@ -4,7 +4,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 
 function filterData(restaurants, searchText) {
-  const result = restaurants.filter((temp) =>
+  const result = restaurants.filter((temp) => 
     temp.data?.name?.toLowerCase()?.includes(searchText.toLowerCase())
   );
   return result;
@@ -13,28 +13,32 @@ function filterData(restaurants, searchText) {
 // Body Component for body section: It contain all restaurant cards
 // We are mapping restaurantList array and passing data to RestaurantCard component as props with unique key as index
 const Body = () => {
-    // useState: To create a state variable, searchText is local state variable
+  // useState: To create a state variable, searchText is local state variable
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurants, setfilteredRestaurants] = useState([]);
   const [allRestaurants, setallRestaurants] = useState([]);
 
-  useEffect (() =>{
+  useEffect(() => {
     //API call
-   getfetchData();
-  }, [])
+    getfetchData();
+  }, []);
 
   async function getfetchData() {
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5236317&lng=73.8411226&page_type=DESKTOP_WEB_LISTING");
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5236317&lng=73.8411226&page_type=DESKTOP_WEB_LISTING"
+    );
     const json = await data.json();
     //optional chaining ?.
-    setallRestaurants(json?.data?.cards[2]?.data?.data?.cards)
-    setfilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards) 
+    setallRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    setfilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   }
 
-   // if allRestaurants is empty don't render restaurants cards
-  if(!allRestaurants) return null;
+  // if allRestaurants is empty don't render restaurants cards
+  if (!allRestaurants) return null;
 
-  return ( allRestaurants.length === 0)  ? <Shimmer/> : (
+  return allRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <>
       <div className="search-cont">
         <input
@@ -62,15 +66,20 @@ const Body = () => {
       </div>
 
       <div className="restaurant-card">
-        {//Below line indicate if no search item found
-        (filteredRestaurants.length === 0) ? <h1>No Restaurants to show</h1> : 
-        filteredRestaurants.map((temp) => {
-          return (
-            <Link to={"/restaurant/" + temp.data.id}>
-          <RestaurantCard key={temp.data.id} {...temp.data} />
-          </Link>
+        {
+          //Below line indicate if no search item found
+          filteredRestaurants.length === 0 ? (
+            <h1>No Restaurants to show</h1>
+          ) : (
+            filteredRestaurants.map((temp) => {
+              return (
+                <Link to={"/restaurant/" + temp.data.id}>
+                  <RestaurantCard key={temp.data.id} {...temp.data} />
+                </Link>
+              );
+            })
           )
-        })}
+        }
       </div>
     </>
   );
@@ -97,3 +106,17 @@ export default Body;
    const searchText = "Hello"
    const [searchText, setSearchText] = useState("Hello");
    */
+
+// useEffect(() => {
+//   const cards = document.querySelectorAll('.restaurant-card .card');
+//   let maxHeight = 0;
+//   cards.forEach(card => {
+//     const height = card.offsetHeight;
+//     if (height > maxHeight) {
+//       maxHeight = height;
+//     }
+//   });
+//   cards.forEach(card => {
+//     card.style.height = maxHeight + 'px';
+//   });
+// }, [filteredRestaurants]);   //for same height of cards

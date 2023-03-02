@@ -22,16 +22,20 @@ const RestaurantCard = ({
         <h6>{area}</h6>
         <p style={{fontSize: "12px"}}>{cuisines.join(", ")}</p>
         <span>
-          <h4 style={
-            avgRating < 4 ? {backgroundColor: "red"} : {backgroundColor: "green"}
-          }>
-            <i className="fa-solid fa-star"></i>
-            {avgRating}
-          </h4>
+        <h4
+          style={
+            avgRating < 4
+              ? { backgroundColor: "var(--light-red)" }
+              : avgRating === "--"
+              ? { backgroundColor: "white", color: "black" }
+              : { color: "white" }
+          }
+        >
+          <i className="fa-solid fa-star"></i>
+          {avgRating}
+        </h4>
           <p>{costForTwoString}</p>
         </span>
-        <hr style={{display: "none"}}></hr>
-        <a href="/" className="quick" style={{display: "none"}}><strong>Quick View</strong></a>
       </div>
     );
   };
